@@ -1,0 +1,21 @@
+[general]
+bind_ip = "0.0.0.0"          # The IP address to listen for incoming DNS messages on
+bind_port = 53               # The port to listen for incoming DNS messages on
+refresh_blocklists_after = 1 # The interval, in minutes, to refresh all block lists
+worker_threads = 4           # Optional. Controls how many requests can be handled at once. Note, a higher value means more memory used, and could actually reduce performance.
+
+[[dot_provider]]                # A DNS-over-TLS (DOT) provider section
+ip = "1.1.1.1"                  # The IP address of the upstream provider
+port = 853                      # The port of the upstream provider's DOT service
+hostname = "cloudflare-dns.com" # The hostname of the DOT provider. See the README.md's 'Security' section
+
+[[dot_provider]]
+ip = "8.8.8.8"
+port = 853
+hostname = "dns.google"
+
+[[http_block_list]]                               # A block list on a remote HTTP server
+url = "https://v.firebog.net/hosts/Easylist.txt"  # A URL that points to the block list
+
+[[file_block_list]]     # A block list that exists on the local file system
+path = "./adaway.list"  # A path to the block list on the local file system
