@@ -11,16 +11,3 @@ steps:
     image: rust
     commands: 
       - cargo build --release
----
-kind: pipeline
-type: docker
-name: arm
-
-platform:
-  arch: arm
-
-steps:
-  - name: Build
-    image: rust
-    commands: 
-      - cargo build --release
