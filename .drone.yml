@@ -6,4 +6,5 @@ name: default
 steps:
   - name: x64 build
     image: rust
-    commands: cargo build --release
+    commands: 
+      - cargo build --release
