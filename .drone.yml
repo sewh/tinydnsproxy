@@ -1,10 +1,26 @@
 ---
 kind: pipeline
 type: docker
-name: default
+name: amd64
+
+platform:
+  arch: amd64
 
 steps:
-  - name: x64 build
+  - name: Build
+    image: rust
+    commands: 
+      - cargo build --release
+---
+kind: pipeline
+type: docker
+name: arm
+
+platform:
+  arch: arm
+
+steps:
+  - name: Build
     image: rust
     commands: 
       - cargo build --release
